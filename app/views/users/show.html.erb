@@ -1,2 +1,11 @@
+
 <p>Hello <%= @user.username %>!!! Glad you could join us.</p>
+<h2><%= current_user.username %>'s Events</h2>
+    <% @user.event.each do |event| %>
+        <%= event.event_name %>
+        <%= link_to 'Show', event %>
+        <%= link_to 'Edit', edit_event_path(event) %>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+      
+    <% end %>
 <%= link_to 'Back', users_path %>

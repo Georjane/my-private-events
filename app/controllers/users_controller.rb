@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    # @user = User.new
     # reset_session
   end
 
@@ -18,13 +19,13 @@ class UsersController < ApplicationController
     @user = User.new(params)
     # session[:current_user_id] = user.id
 
-    # respond_to do |format|
-    #   if @user.save
-    #     format.html { redirect_to @event, notice: 'Event was successfully created.' }
-    #     format.json { render :show, status: :created, location: @event }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @event.errors, status: :unprocessable_entity }
-    #   end
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
 end
