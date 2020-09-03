@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+    # reset_session
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -6,10 +11,12 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    # session[:current_user_id] = user.id
   end
 
   def create
     @user = User.new(params)
+    # session[:current_user_id] = user.id
 
     # respond_to do |format|
     #   if @user.save
