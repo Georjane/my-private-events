@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Events</h1>
+<h3>Events</h3>
 
 <table>
   <thead>
@@ -11,6 +9,7 @@
 
   <tbody>
     <% @events.each do |event| %>
+    <p><%= event.event_name %></p>
       <tr>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
