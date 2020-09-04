@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params)
     session[:current_user_id] = user.id
-    # how to redirect creayed user to his account
+    # how to redirect created user to his account
     respond_to do |format|
       if @user.save
         format.html { redirect_to current_user_path, notice: 'User was successfully created.' }

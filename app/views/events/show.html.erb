@@ -1,8 +1,8 @@
-
-<p><%= @event.event_name %></p>
-<p><%= @event.event_description %></p>
-<p><%= @event.event_location %></p>
-<p><%= @event.event_date %></p>
-<p><%= @event.event_creator_id%></p>
+<h3>Event Details</h3>
+<p><strong>Name:</strong> <%= @event.event_name %></p>
+<p><strong>Description:</strong> <%= @event.event_description %></p>
+<p><strong>Location:</strong> <%= @event.event_location %></p>
+<p><strong>Date:</strong> <%= @event.event_date %></p>
+<p>This event was created by <strong><%= User.find(@event.event_creator_id).username %></strong></p>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
