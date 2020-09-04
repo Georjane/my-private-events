@@ -1,16 +1,15 @@
-<h1>All Users</h1>
+<h2>All Users</h2>
 
     <% @users.each do |user| %>
-
-    <%= user.username%><br/>
-    <%= user.email%>
-      
-        <%= link_to 'Show', user %>
-        <%= link_to 'Edit', edit_user_path(user) %>
-        <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
-     
+    <ul>
+        <li>
+            <strong><%= user.username%></strong><br/>
+            <%= user.email%><br/>
+            <%= link_to 'Show', user %>
+            <%= link_to 'Edit', edit_user_path(user) %>
+        </li>
+    </ul>
     <% end %>
-
 
 <br>
 
