@@ -1,4 +1,4 @@
-<h3>All Events</h3>
+<h3 class = "left" >All Events</h3>
 
   <ol>
     <% @events.each do |event| %>
@@ -9,7 +9,22 @@
     <% end %>
   </ol>
 
-
+  <p> Upcoming Events</p>
+  <ul>
+    <% @events.each do |event| %>
+      <% if event.event_date > Date.today %>
+          <li><%= event.event_name %></li>  
+      <% end %>
+    <% end %>
+  </ul>
+  <p> Past Events</p>
+  <ul>
+    <% @events.each do |event| %>
+      <% if event.event_date < Date.today %>
+          <li><%= event.event_name %></li>  
+      <% end %>
+    <% end %>
+  </ul>
 <br>
 
 <%= link_to 'New Event', new_event_path %>

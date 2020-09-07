@@ -8,7 +8,9 @@
 <p>This event will be attended by the following people <%= @event.event_attendees.count %> </p>
 <% @event.event_attendees.each do |l| %>
 <%= l.username %>
-<% end %><br/>
+<% end %><br/><br/><br/>
+<%# create a button to attend event %>
+<%= link_to 'Attend Event' %><br/>
 
-<%= link_to 'Edit', edit_event_path(@event) %>
+<%= link_to 'Edit', edit_event_path(@event) %><br/>
 <%= link_to 'Back', events_path %>

@@ -1,3 +1,4 @@
+<div class = "left">
 <h2>All Users</h2>
 
     <% @users.each do |user| %>
@@ -12,7 +13,9 @@
     <% end %>
 
 <br>
+</div>
 
+<div class = "right">
 <h3>All Events</h3>
 
   <ol>
@@ -23,7 +26,7 @@
         <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>  
     <% end %>
   </ol>
-
+</div>
 
 <%= link_to 'New User', new_user_path %>
 
