@@ -1,0 +1,16 @@
+
+<p>Hello <%= @user.username %>!!! Glad you could join us.</p>
+<h3><%= @user.username %>'s Events</h3>
+<ol>
+<% @user.events.each do |e| %>
+
+  <li><strong><%= e.event_name %></strong></li>
+  <p><%= e.event_description %></p>
+  <p><%= e.event_location %></p>
+  <p><%= e.event_date %></p>
+  <p><%= e.event_creator_id %></p>
+
+<% end %>
+</ol>
+ <%= link_to 'New Event', new_event_path %>   
+<%= link_to 'Back', users_path %>

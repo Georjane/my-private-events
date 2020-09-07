@@ -6,10 +6,44 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <nav class="navbar bg-danger">
+    <!-- Brand -->
+    <div class = "navbar-header">
+      <a class="navbar-brand" href="#">Private Events</a>
+    </div>
 
-  <body>
-    <%= yield %>
-  </body>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse navbar-right p-5" id="collapsibleNavbar" >
+          <% if user_signed_in? %>
+              <p class = "">Current User:
+                <%= link_to current_user.username, edit_user_registration_path, class: ""%><br/>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: " "%>
+              </p>
+              <% else %>
+              <p class = "">
+              <%= link_to "Sign In", new_user_session_path, class: ""%><br/>
+              
+              <%= link_to "Sign Up", new_user_registration_path, class: ""%>
+              </p>
+              <% end %>          
+    </div>
+  </nav>
+  <div class = container>
+    <body>
+        <% if flash[:notice] %>
+          <div class = 'notification is-primary global-notification'>
+            <p class='notice'><%= notice %></p>
+          </div>
+        <% end %>
+          <% if flash[:alert] %>
+          <div class = 'notification is-danger global-notification'>
+            <p class='alert'><%= alert %></p>
+          </div>
+        <% end %>
+      <%= yield %>
+    </body>
+  </div>
 </html>

@@ -1,0 +1,30 @@
+<h3 class = "left" >All Events</h3>
+
+  <ol>
+    <% @events.each do |event| %>
+        <li><%= event.event_name %></li>   
+        <%= link_to 'Show', event %>
+        <%= link_to 'Edit', edit_event_path(event) %>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>  
+    <% end %>
+  </ol>
+
+  <p> Upcoming Events</p>
+  <ul>
+    <% @events.each do |event| %>
+      <% if event.event_date > Date.today %>
+          <li><%= event.event_name %></li>  
+      <% end %>
+    <% end %>
+  </ul>
+  <p> Past Events</p>
+  <ul>
+    <% @events.each do |event| %>
+      <% if event.event_date < Date.today %>
+          <li><%= event.event_name %></li>  
+      <% end %>
+    <% end %>
+  </ul>
+<br>
+
+<%= link_to 'New Event', new_event_path %>
