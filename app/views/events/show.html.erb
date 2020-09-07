@@ -4,5 +4,11 @@
 <p><strong>Location:</strong> <%= @event.event_location %></p>
 <p><strong>Date:</strong> <%= @event.event_date %></p>
 <p>This event was created by <strong><%= User.find(@event.event_creator_id).username %></strong></p>
-<%= link_to 'Edit', edit_event_path(@event) %> |
+
+<p>This event will be attended by the following people <%= @event.event_attendees.count %> </p>
+<% @event.event_attendees.each do |l| %>
+<%= l.username %>
+<% end %><br/>
+
+<%= link_to 'Edit', edit_event_path(@event) %>
 <%= link_to 'Back', events_path %>

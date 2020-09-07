@@ -1,8 +1,8 @@
 
-<p>Hello <%= current_user.username %>!!! Glad you could join us.</p>
-<h3><%= current_user.username %>'s Events</h3>
+<p>Hello <%= @user.username %>!!! Glad you could join us.</p>
+<h3><%= @user.username %>'s Events</h3>
 <ol>
-<% current_user.events.each do |e| %>
+<% @user.events.each do |e| %>
 
   <li><strong><%= e.event_name %></strong></li>
   <p><%= e.event_description %></p>

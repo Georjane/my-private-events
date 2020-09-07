@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    @events = Event.all
     # @user = User.new
     # reset_session
   end
